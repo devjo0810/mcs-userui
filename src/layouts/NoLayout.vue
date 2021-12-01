@@ -1,5 +1,8 @@
 <template>
-  <div></div>
+  <div>
+    NoLayout
+    <router-view />
+  </div>
 </template>
 
 <script>

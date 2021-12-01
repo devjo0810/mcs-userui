@@ -1,9 +1,9 @@
 <template>
-  <div>TempCommon</div>
+  <div>Template1</div>
 </template>
 
 <script>
 export default {
-  name: 'TempCommon'
+  name: 'Template1'
 }
 </script>

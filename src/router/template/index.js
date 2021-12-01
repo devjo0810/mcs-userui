@@ -1,9 +1,10 @@
-const TempCommon = () => import(/* webpackChunkName: "template" */ '@/views/template/TempCommon')
+const Template1 = () => import(/* webpackChunkName: "template" */ '@/views/template/Template1')
 
 export default [
   {
-    path: '/template/common',
-    name: 'TempCommon',
-    component: TempCommon
+    path: '/template1',
+    name: 'Template1',
+    component: Template1,
+    meta: { auth: false, layout: 'Template', header: true }
   }
 ]

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <router-view />
+    User Manage
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NoLayout'
+  name: 'UserManage'
 }
 </script>

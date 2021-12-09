@@ -13,7 +13,9 @@ const getters = {
 }
 
 const mutations = {
-
+  setMenuList (state, { menuList }) {
+    state.menuList = [...menuList]
+  }
 }
 
 const actions = {

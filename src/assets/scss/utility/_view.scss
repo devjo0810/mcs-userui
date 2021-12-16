@@ -1,8 +1,21 @@
 .login-view {
   width: 450px;
-  height: 400px;
+  height: 415px;
   .login-form {
     width: 90%;
     margin: auto;
   }
+}
+
+.app-menu-select-view {
+  height: 100%;
+  padding: 25px;
+  .v-card {
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .v-card:not(.on-hover) {
+    opacity: 0.6;
+   }
 }

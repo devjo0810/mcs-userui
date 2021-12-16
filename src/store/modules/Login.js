@@ -1,5 +1,6 @@
 'use strict'
 import moment from 'moment'
+// import Vue from 'vue'
 
 const MEMBER_LIST = [
   { id: 'test1', password: 'test1', userName: '테스터1', authList: ['A', 'B', 'C'] },
@@ -54,11 +55,22 @@ const actions = {
     commit('setToken', { token })
     return true
   },
-  async loginCheck ({ commit, state }, { id, password }) {
+  async loginCheck ({ commit }, { id, password }) {
     const member = MEMBER_LIST.find(item => item.id === id)
+    // Vue.api.post('/auth/login', { id, password })
     if (!member) return false
     if (member.password !== password) return false
     await loginSuccess(commit, member)
+    return true
+  },
+  async logout ({ commit }) {
+    sessionStorage.removeItem('token')
+    await Promise.all([
+      commit('setToken', { token: null }),
+      commit('setUserId', { userId: null }),
+      commit('setUserName', { userName: null }),
+      commit('setUserId', { authList: [] })
+    ])
     return true
   }
 }
@@ -79,7 +91,7 @@ async function loginSuccess (commit, member) {
 }
 
 function encodeToken (args) {
-  return btoa(JSON.stringify(args))
+  return JSON.stringify(args)
 }
 
 // function decodeToken (token) {

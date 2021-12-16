@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :id="appId">
     <Header v-if="isHeader" />
 
     <v-main>
@@ -12,6 +12,7 @@
 import Header from '@/components/common/Header'
 import NoLayout from '@/layouts/NoLayout'
 import TemplateLayout from '@/layouts/TemplateLayout'
+import { APP } from '@/config'
 
 export default {
   name: 'App',
@@ -21,7 +22,7 @@ export default {
     TemplateLayout
   },
   data: () => ({
-    //
+    appId: APP.documentId
   }),
   computed: {
     layoutName () {

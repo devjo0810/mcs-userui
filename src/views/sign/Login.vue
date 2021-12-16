@@ -1,60 +1,68 @@
 <template>
-  <div class="login-view grey lighten-5 rounded-lg elevation-6">
-    <h2 class="text-center my-5">My Cloud Service</h2>
-    <v-form
-      class="login-form"
-      ref="form"
-      lazy-validation
-    >
-      <v-text-field
-        label="아이디"
-        :rules="[v => !!v || '아이디를 입력해주세요']"
-        required
-        v-model="form.id"
-      />
-      <v-text-field
-        type="password"
-        label="비밀번호"
-        :rules="[v => !!v || '비밀버호를 입력해주세요']"
-        required
-        v-model="form.password"
-      />
-      <v-checkbox
-        label="아이디 저장"
-        v-model="idCheck"
-      />
-      <v-btn
-        class="light-blue lighten-3"
-        block
-        @click="login"
+  <div class="f100p d-flex justify-center align-center">
+    <div class="login-view grey lighten-5 rounded-lg elevation-6">
+      <h2 class="title text-center my-5">{{ appTitle }}</h2>
+      <v-form
+        class="login-form"
+        ref="form"
+        lazy-validation
       >
-        <span>로그인</span>
-      </v-btn>
-      <v-row class="mt-1">
-        <v-col cols="6">
-          <v-btn
-            class="grey lighten-2"
-            block
-            @click="$router.push('/signup')"
-          >
-            <span>회원가입</span>
-          </v-btn>
-        </v-col>
-        <v-col cols="6">
-          <v-btn
-            class="grey lighten-2"
-            block
-            @click="test"
-          >
-            <span>비밀번호 초기화</span>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
+        <v-text-field
+          label="아이디"
+          :rules="[v => !!v || '아이디를 입력해주세요']"
+          required
+          v-model="form.id"
+          @keydown.enter="login"
+        />
+        <v-text-field
+          type="password"
+          label="비밀번호"
+          :rules="[v => !!v || '비밀번호를 입력해주세요']"
+          required
+          v-model="form.password"
+          @keydown.enter="login"
+        />
+        <v-checkbox
+          label="아이디 저장"
+          v-model="idCheck"
+        />
+        <v-btn
+          class="light-blue lighten-3"
+          block
+          @click="login"
+        >
+          <span>로그인</span>
+        </v-btn>
+        <v-row class="mt-1">
+          <v-col cols="6">
+            <v-btn
+              class="grey lighten-2"
+              block
+              @click="$router.push('/signup')"
+            >
+              <span>회원가입</span>
+            </v-btn>
+          </v-col>
+          <v-col cols="6">
+            <v-btn
+              class="grey lighten-2"
+              block
+              @click="test"
+            >
+              <span>비밀번호 초기화</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-form>
+      <p class="subtitle-2 text-center mt-5 mb-1">version {{ appVersion }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import { APP } from '@/config'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Login',
   data: () => ({
@@ -62,16 +70,29 @@ export default {
       id: '',
       password: ''
     },
-    idCheck: false
+    idCheck: false,
+    appTitle: APP.title,
+    appVersion: APP.version
   }),
   methods: {
-    login () {
-      this.$refs.form.validate()
-      console.log('login', this.form)
+    ...mapActions({
+      loginCheck: 'Login/loginCheck'
+    }),
+    async login () {
+      const isValid = this.$refs.form.validate()
+      if (!isValid) return
+      const isLogin = await this.loginCheck(this.form)
+      if (!isLogin) {
+        this.$dialog.alert('아이디 또는 비밀번호가 일치하지 않습니다.')
+      } else {
+        this.$router.push('/menu')
+      }
     },
     test () {
-      // this.$alert('test')
-      this.$confirm('test')
+      this.$spinner.show()
+      setTimeout(() => {
+        this.$spinner.hide()
+      }, 1000)
     }
   }
 }

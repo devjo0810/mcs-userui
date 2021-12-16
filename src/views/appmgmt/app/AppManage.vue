@@ -1,11 +1,9 @@
 <template>
-  <div>
-    User Manage
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'UserManage'
+  name: 'AppManage'
 }
 </script>

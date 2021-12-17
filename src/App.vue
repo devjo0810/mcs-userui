@@ -11,6 +11,7 @@
 <script>
 import Header from '@/components/common/Header'
 import NoLayout from '@/layouts/NoLayout'
+import AppmgmtLayout from '@/layouts/AppmgmtLayout'
 import TemplateLayout from '@/layouts/TemplateLayout'
 import { APP } from '@/config'
 
@@ -19,6 +20,7 @@ export default {
   components: {
     Header,
     NoLayout,
+    AppmgmtLayout,
     TemplateLayout
   },
   data: () => ({

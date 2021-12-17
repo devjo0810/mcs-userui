@@ -36,7 +36,8 @@
         </v-row>
       </v-container>
       <v-btn
-        class="red darken-1 white--text fixed-bottom-right"
+        class="red darken-1 white--text fixed-bottom-right px-1"
+        min-width="44px"
         @click="logout"
       >
         <v-icon>mdi-logout</v-icon>
@@ -52,12 +53,14 @@ const SAMPLE = [
   {
     icon: 'mdi-view-grid-plus',
     title: '시스템 관리',
-    path: '/appmgmt'
+    path: '/appmgmt/app/menu1',
+    appName: 'appmgmt'
   },
   {
     icon: 'mdi-format-list-checks',
     title: 'To Do List',
-    path: '/todolist'
+    path: '/todolist',
+    appName: 'todolist'
   },
   {
     icon: 'mdi-heart',

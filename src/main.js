@@ -1,3 +1,4 @@
+import { debug } from '@/config'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -7,6 +8,11 @@ import globalDialog from './plugins/global-dialog'
 import globalSpinner from './plugins/global-spinner'
 import api from './plugins/api'
 import './assets/scss/main.scss'
+
+window.log = function (...args) {
+  if (!debug) return
+  console.log(...args)
+}
 
 Vue.use(globalDialog)
 Vue.use(globalSpinner)

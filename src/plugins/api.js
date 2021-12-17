@@ -19,23 +19,19 @@ export default {
     }
     const api = axios.create(axiosOtions)
     api.interceptors.request.use(config => {
-      if (axiosOtions.debug) {
-        console.log('api request config :', config)
-      }
+      window.log('api request config :', config)
       vue.spinner.show()
       return config
     }, error => {
-      console.log('api request error :', error)
+      window.log('api request error :', error)
       vue.spinner.hide()
     })
     api.interceptors.response.use(response => {
-      if (axiosOtions.debug) {
-        console.log('api response :', response)
-      }
+      window.log('api response :', response)
       vue.spinner.hide()
       return response
     }, error => {
-      console.log('api response error :', error)
+      window.log('api response error :', error)
       vue.spinner.hide()
     })
 

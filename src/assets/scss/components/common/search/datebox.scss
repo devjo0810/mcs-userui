@@ -1,0 +1,23 @@
+.search-date-box {
+  min-width: 100px;
+  &.v-text-field {
+    margin: 0;
+    padding: 0;
+  }
+  &.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control {
+    min-height: 0;
+    > .v-input__slot {
+      box-shadow: none;
+      border: 1px solid #ececec;
+      margin: 0;
+      padding: 0 6px;
+      .v-label,
+      .v-text-field__slot {
+        font-size: 14px;
+      }
+    }
+  }
+  .v-text-field__details {
+    display: none;
+  }
+}

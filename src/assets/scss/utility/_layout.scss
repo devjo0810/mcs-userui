@@ -98,7 +98,7 @@
     }
   }
   .section-body {
-    height: calc(100% - 60px);
+    min-height: calc(100% - 60px);
     padding: 20px 40px;
     border-top: 1px solid #EEEEEE;
   }

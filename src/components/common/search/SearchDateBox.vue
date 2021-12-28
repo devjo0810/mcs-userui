@@ -17,6 +17,7 @@
         solo
         v-bind="attrs"
         v-on="on"
+        @click:append="menu=true"
         :label="label"
         :value="value"
         :style="fieldStyle"
@@ -47,16 +48,9 @@ export default {
       type: String,
       default: '날짜를 선택해주세요'
     },
-    width: {
-      type: Number,
-      required: false
-    }
-  },
-  computed: {
-    fieldStyle () {
-      let styleVal = ''
-      styleVal += this.width ? 'width: ' + this.width + 'px; ' : ''
-      return styleVal
+    fieldStyle: {
+      type: String,
+      default: ''
     }
   },
   methods: {

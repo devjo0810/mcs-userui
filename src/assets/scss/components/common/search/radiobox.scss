@@ -17,13 +17,16 @@
       margin-right: 0;
     }
     .v-input--selection-controls__input {
-      margin-right: 4px;
+      margin-right: 0px;
       .v-icon {
         font-size: 16px;
       }
+      .v-input--selection-controls__ripple {
+        display: none;
+      }
     }
     .v-label {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 }

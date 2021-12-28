@@ -1,6 +1,6 @@
 <template>
   <div class="sub_container">
-    <div class="search_area">
+<div class="search_area">
       <table class="search_table">
         <colgroup>
           <col class="w5" />
@@ -143,7 +143,7 @@ import SearchDateBox from '@/components/common/search/SearchDateBox.vue'
 import SearchComboBox from '@/components/common/search/SearchComboBox.vue'
 
 export default {
-  name: 'AppMenu1',
+  name: 'TemplateMain',
   components: {
     SearchSelectBox,
     SearchTextBox,

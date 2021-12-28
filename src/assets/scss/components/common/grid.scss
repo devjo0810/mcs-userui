@@ -1,0 +1,59 @@
+.grid_area {
+  width: 100%;
+  .grid-header {
+    margin-bottom: 8px;
+    height: 24px;
+    .v-icon {
+      font-size: 20px;
+      margin-right: 4px; 
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+  .grid_button_area {
+    @include flex-start;
+    margin-top: 8px;
+    background-color: #E1F5FE;
+    height: 38px;
+    border: 1px solid #B3E5FC;
+    padding: 0 10px;
+    .v-btn {
+      @include list-margin-right(4px);
+      &.white {
+        background-color: #f5f5f5  !important;
+        border: 1px solid #e0e0e0 !important;
+      }
+    }
+  }
+}
+
+.mcs-grid {
+  border: 1px solid #ececec;
+  border-top: 1px solid #2a2a2a;
+  .v-data-table__wrapper {
+    table {
+      .v-data-table-header {
+        tr {
+          th {
+            border-right: thin solid rgba(0, 0, 0, 0.12);
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-size: 12px !important;
+            border-right: thin solid rgba(0, 0, 0, 0.12);
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

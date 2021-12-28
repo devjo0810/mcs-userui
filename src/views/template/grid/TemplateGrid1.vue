@@ -1,9 +1,9 @@
 <template>
-  <div>Template1</div>
+  <div>TemplateGrid1</div>
 </template>
 
 <script>
 export default {
-  name: 'Template1'
+  name: 'TemplateGrid1'
 }
 </script>

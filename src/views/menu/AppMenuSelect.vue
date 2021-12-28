@@ -51,6 +51,11 @@ import { mapActions } from 'vuex'
 
 const SAMPLE = [
   {
+    icon: 'mdi-card-multiple',
+    title: 'Template',
+    path: '/template/main'
+  },
+  {
     icon: 'mdi-view-grid-plus',
     title: '시스템 관리',
     path: '/appmgmt/app/menu1',
@@ -61,11 +66,6 @@ const SAMPLE = [
     title: 'To Do List',
     path: '/todolist',
     appName: 'todolist'
-  },
-  {
-    icon: 'mdi-heart',
-    title: 'Test App',
-    path: '/template1'
   },
   {
     icon: 'mdi-heart',

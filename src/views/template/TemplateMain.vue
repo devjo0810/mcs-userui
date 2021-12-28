@@ -1,10 +1,9 @@
 <template>
   <div class="sub_container">
-<div class="search_area">
+    <h3 class="sub-title1 my-2">템플릿 메인</h3>
+    <div class="search_area">
       <table class="search_table">
         <colgroup>
-          <col class="w5" />
-          <col />
           <col class="w5" />
           <col />
           <col class="w5" />
@@ -40,14 +39,6 @@
                 @iconClick="onIconClick"
               />
             </td>
-            <th scope="col">라디오박스</th>
-            <td scope="col">
-              <SearchRadioBox
-                style="width: 200px"
-                v-model="searchData.v3"
-                :items="searchItem3"
-              />
-            </td>
             <th scope="col">날짜선택기</th>
             <td scope="col">
               <SearchDateBox
@@ -55,13 +46,13 @@
                 :fieldStyle="'width: 180px;'"
               />
             </td>
-            <td scope="col" colspan="2">
-              <div class="d-flex justify-end align-center">
-                <v-btn
-                  small outlined class="blue darken-1 white--text"
-                  @click="search"
-                >조회</v-btn>
-              </div>
+            <th scope="col">라디오박스</th>
+            <td scope="col">
+              <SearchRadioBox
+                style="width: 200px"
+                v-model="searchData.v3"
+                :items="searchItem3"
+              />
             </td>
           </tr>
           <tr>
@@ -88,8 +79,12 @@
                 v-model="searchData.v7"
               />
             </td>
-            <td scope="col" colspan="8">
+            <td scope="col" colspan="6">
               <div class="button-area">
+                <v-btn
+                  small outlined class="blue darken-1 white--text"
+                  @click="search"
+                >조회</v-btn>
                 <v-btn
                   small outlined class="green darken-1 white--text"
                 >다운로드</v-btn>

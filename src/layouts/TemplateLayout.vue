@@ -80,9 +80,9 @@ export default {
       },
       {
         items: [
-          { title: '그리드1', path: '/template/grid1' },
-          { title: '그리드2', path: '/template/grid2' },
-          { title: '그리드3', path: '/template/grid3' }
+          { title: 'Vuetify 그리드1', path: '/template/grid1' },
+          { title: 'ToastUI 그리드1', path: '/template/grid2' },
+          { title: 'ToastUI 그리드2', path: '/template/grid3' }
         ],
         title: '그리드'
       },

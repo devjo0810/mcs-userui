@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify'
 import globalDialog from './plugins/global-dialog'
 import globalSpinner from './plugins/global-spinner'
 import api from './plugins/api'
+import './plugins/toastui-grid'
 import './assets/scss/main.scss'
 
 window.log = function (...args) {

@@ -7,7 +7,6 @@
         class="mcs-grid"
         dense
         height="250"
-        :items-per-page="-1"
         :headers="gridHeaders"
         :items="gridItems"
       />

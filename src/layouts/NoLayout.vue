@@ -1,5 +1,5 @@
 <template>
-  <div class="no-layout light-blue lighten-5">
+  <div class="no-layout">
     <router-view />
   </div>
 </template>

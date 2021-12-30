@@ -1,7 +1,7 @@
 <template>
   <div class="f100p d-flex justify-center align-center">
     <div class="login-view grey lighten-5 rounded-lg elevation-6">
-      <h2 class="title text-center my-5">{{ appTitle }}</h2>
+      <Logo class="mt-8 mb-3" />
       <v-form
         class="login-form"
         ref="form"
@@ -27,7 +27,7 @@
           v-model="idCheck"
         />
         <v-btn
-          class="light-blue lighten-3"
+          class="mcs-primary"
           block
           @click="login"
         >
@@ -36,7 +36,7 @@
         <v-row class="mt-1">
           <v-col cols="6">
             <v-btn
-              class="grey lighten-2"
+              class="mcs-grey"
               block
               @click="$router.push('/signup')"
             >
@@ -45,7 +45,7 @@
           </v-col>
           <v-col cols="6">
             <v-btn
-              class="grey lighten-2"
+              class="mcs-grey"
               block
               @click="test"
             >
@@ -60,11 +60,15 @@
 </template>
 
 <script>
+import Logo from '@/components/common/Logo.vue'
 import { APP } from '@/config'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
+  components: {
+    Logo
+  },
   data: () => ({
     form: {
       id: '',

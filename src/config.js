@@ -4,6 +4,7 @@ const debug = process.env.NODE_ENV !== 'production'
 const APP = {
   version: process.env.VUE_APP_VERSION,
   title: process.env.VUE_APP_TITLE,
+  titleAlias: process.env.VUE_APP_TITLE_ALIAS,
   documentId: process.env.VUE_APP_DOCUMENT_ID
 }
 

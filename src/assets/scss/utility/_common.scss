@@ -13,6 +13,7 @@ html, body {
 
 body {
   font-family: "Noto Sans KR", sans-serif, "맑은고딕", "malgun gothic", "AppleGothic", "돋움", "dotum", Helvetica, Arial;
+  background: #fcfcfc;
 }
 
 table {
@@ -22,6 +23,23 @@ table {
 
 .v-application {
   font-family: "Noto Sans KR", sans-serif, "맑은고딕", "malgun gothic", "AppleGothic", "돋움", "dotum", Helvetica, Arial;
+  .v-main__wrap {
+    background: $bg-color;
+  }
+}
+
+/* color */
+.mcs-{
+  &primary {
+    background-color: $primary !important;
+    color: #fff !important;
+  }
+  &secondary {
+    background-color: $secondary !important;
+  }
+  &grey {
+    background-color: $grey !important;
+  }
 }
 
 .w100p {
@@ -60,4 +78,18 @@ table {
   font-weight: 400;
   font-size: 18px;
   margin: 10px 0;
+}
+
+.main-logo {
+  @include flex-center;
+  height: 44px;
+  img {
+    height: 36px;
+  }
+  span {
+    color: $primary;
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }

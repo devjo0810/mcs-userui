@@ -21,6 +21,8 @@
     padding: 0 10px;
     .v-btn {
       @include list-margin-right(4px);
+      font-weight: 400;
+      text-transform: none;
       &.white {
         background-color: #fafafa !important;
         border: 1px solid #eeeeee !important;
@@ -62,7 +64,17 @@
 .tui-grid-container {
   font-size: 12px;
   font-family: "Noto Sans KR", sans-serif, "맑은고딕", "malgun gothic", "AppleGothic", "돋움", "dotum", Helvetica, Arial;
+  // font
+  p, input, textarea {
+    font-size: 12px;
+    font-family: "Noto Sans KR", sans-serif, "맑은고딕", "malgun gothic", "AppleGothic", "돋움", "dotum", Helvetica, Arial;
+  }
   .tui-grid-border-line-top {
     border-color: #2a2a2a;
+  }
+  // checkbox
+  .tui-grid-cell-row-header > span, // grid header checkbox
+  .tui-grid-row-header-checkbox { // grid body checkbox
+    @include flex-center
   }
 }

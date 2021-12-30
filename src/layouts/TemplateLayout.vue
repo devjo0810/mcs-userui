@@ -28,7 +28,6 @@
           <v-list-group
             v-for="(item, i) in items"
             :key="i"
-            no-action
           >
             <template v-slot:activator>
               <v-list-item-content>
@@ -39,13 +38,21 @@
               v-for="(child, childIdx) in item.items"
               :key="childIdx"
               link
-              @click="go(child.path)"
+              @click="go(child.path, child.newTab)"
             >
+              <v-icon>mdi-chevron-right</v-icon>
               <v-list-item-content>
                 <v-list-item-title v-text="child.title"></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
+          <v-list-item link>
+            <v-list-item-content
+              @click="go('/template/popup1')"
+            >
+              <v-list-item-title v-text="'팝업'"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </section>
       <v-sheet class="section-content">
@@ -64,35 +71,31 @@ export default {
     items: [
       {
         items: [
-          { title: '컴포넌트1', path: '/template/component1' },
-          { title: '컴포넌트2', path: '/template/component2' },
-          { title: '컴포넌트3', path: '/template/component3' }
+          { title: '버튼', path: '/template/component1' },
+          { title: '색상', path: 'https://vuetifyjs.com/en/styles/colors/#material-colors', newTab: true },
+          { title: '아이콘', path: 'https://materialdesignicons.com/', newTab: true }
         ],
         title: '컴포넌트'
       },
       {
         items: [
-          { title: '테이블1', path: '/template/table1' },
-          { title: '테이블2', path: '/template/table2' },
-          { title: '테이블3', path: '/template/table3' }
-        ],
-        title: '테이블'
-      },
-      {
-        items: [
-          { title: 'Vuetify 그리드1', path: '/template/grid1' },
-          { title: 'ToastUI 그리드1', path: '/template/grid2' },
-          { title: 'ToastUI 그리드2', path: '/template/grid3' }
+          { title: 'ToastUI 그리드 기본', path: '/template/grid2' },
+          { title: 'ToastUI 그리드 에디터', path: '/template/grid3' },
+          { title: 'Vuetify 그리드(미사용)', path: '/template/grid1' }
         ],
         title: '그리드'
       },
       {
         items: [
-          { title: '팝업1', path: '/template/popup1' },
-          { title: '팝업2', path: '/template/popup2' },
-          { title: '팝업3', path: '/template/popup3' }
+          { title: '테이블1', path: '/template/table1' }
         ],
-        title: '팝업'
+        title: '테이블'
+      },
+      {
+        items: [
+          { title: 'ToastUI 위지윅 에디터', path: '/template/editor1' }
+        ],
+        title: '에디터'
       }
     ]
   }),
@@ -111,8 +114,14 @@ export default {
       if (!flag) return
       this.$router.push('/menu')
     },
-    go (path) {
-      if (path) this.$router.push(path)
+    go (path, newTab) {
+      if (path) {
+        if (!newTab) {
+          this.$router.push(path)
+        } else {
+          window.open(path, '_blank')
+        }
+      }
     }
   }
 }

@@ -10,6 +10,8 @@
         :minRowHeight="30"
         :bodyHeight="500"
         :header="{ height: 30 }"
+        :copyOptions="{ useListItemText: true }"
+        :columnOptions="{ resizable: true, minWidth: 70 }"
         :columns="gridColumns"
         :data="gridItems"
       />
@@ -49,11 +51,16 @@ export default {
     isSingle: false,
     selected: [],
     gridColumns: [
-      { header: '이름', name: 'name', align: 'center', editor: 'text' },
+      { header: '이름', name: 'name', align: 'center', editor: 'text', sortable: true },
       {
         header: '전화번호',
         name: 'telNum',
-        align: 'center'
+        align: 'center',
+        filter: {
+          type: 'text',
+          showApplyBtn: true,
+          showClearBtn: true
+        }
       },
       {
         header: 'Select코드',
@@ -70,9 +77,7 @@ export default {
             ]
           }
         },
-        copyOptions: {
-          useListItemText: true
-        }
+        filter: 'select'
       },
       {
         header: 'Check코드',
@@ -88,9 +93,6 @@ export default {
               { text: 'Sample3', value: '3' }
             ]
           }
-        },
-        copyOptions: {
-          useListItemText: true
         }
       },
       {
@@ -107,14 +109,11 @@ export default {
               { text: '★★★', value: '3' }
             ]
           }
-        },
-        copyOptions: {
-          useListItemText: true
         }
       },
       { header: '주소', name: 'addr', align: 'center' },
       { header: '상세 주소', name: 'addrDtl', align: 'center', editor: 'text' },
-      { header: '이메일', name: 'email', align: 'center' },
+      { header: '이메일', name: 'email', align: 'center', width: 150 },
       { header: '등록자', name: 'rgsrNm', align: 'center' },
       {
         header: '등록일',
@@ -126,9 +125,27 @@ export default {
             format: 'yyyy-MM-dd',
             language: 'ko'
           }
+        },
+        filter: {
+          type: 'date',
+          format: 'yyyy-MM-dd'
         }
       },
-      { header: '사용여부', name: 'isUsed', align: 'center' }
+      {
+        header: '사용여부',
+        name: 'isUsed',
+        align: 'center',
+        formatter: 'listItemText',
+        editor: {
+          type: 'radio',
+          options: {
+            listItems: [
+              { text: '사용', value: '1' },
+              { text: '미사용', value: '0' }
+            ]
+          }
+        }
+      }
     ],
     gridItems: GRID_SAMPLE
   }),
@@ -157,27 +174,27 @@ export default {
 }
 
 const GRID_SAMPLE = [
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '1', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '2', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '3', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '4', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '5', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '6', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '7', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '8', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '9', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '10', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '11', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '12', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '13', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '14', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '15', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '16', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '17', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '18', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '19', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: false, id: '20', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '21', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
-  { radio: '1', check: '1', sel: '1', isUsed: true, id: '22', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' }
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '1', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '2', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '3', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '0', id: '4', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '5', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '6', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '0', id: '7', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '8', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '9', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '0', id: '10', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '11', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '12', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '13', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '14', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '15', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '16', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '0', id: '17', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '0', id: '18', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '19', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '20', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '21', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' },
+  { radio: '1', check: '1', sel: '1', isUsed: '1', id: '22', name: '홍길동', telNum: '010-0000-1234', addr: '서울특별시', addrDtl: '가좌동', email: 'honggildong@hong.co.kr', rgsrNm: '김좌진', regDt: '2021-12-12' }
 ]
 </script>

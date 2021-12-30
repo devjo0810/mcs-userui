@@ -53,3 +53,11 @@ table {
     @include list-margin-right(4px);
   }
 }
+
+.sub-title {
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #ececec;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 10px 0;
+}

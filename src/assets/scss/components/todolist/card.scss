@@ -1,0 +1,21 @@
+.todolist-card {
+  height: 100%;
+
+  .todolist-header {
+    padding: 4px 8px 4px 16px;
+    font-size: 16px;
+    background-color: $bg-color;
+    .header-button {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      button {
+        font-size: 14px;
+        padding: 0;
+      }
+    }
+  }
+  .todolist-body {
+    padding: 4px 16px;
+  }
+}

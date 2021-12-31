@@ -1,5 +1,5 @@
 <template>
-  <div class="appmgmt-layout light-blue lighten-5">
+  <div class="appmgmt-layout">
     <v-btn
       v-if="!subMenuShow && subMenuList.length"
       color="white"

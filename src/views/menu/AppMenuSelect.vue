@@ -2,16 +2,24 @@
   <div class="app-menu-select-view">
     <v-sheet
       rounded="lg"
-      height="100%"
       width="600px"
-      class="mx-auto overflow-y-auto relative"
+      elevation="2"
+      class="relative"
     >
-      <h2
-        class="h1 text-center my-5"
-      >
-        APP 메뉴 목록
-      </h2>
-      <v-container fluid>
+      <div class="d-flex justify-space-between align-center px-3 py-5 mcs-primary rounded-t-lg rounded-t-2">
+        <h2
+          class="text-center"
+        >APP 메뉴 목록</h2>
+        <v-btn
+          color="red darken-1"
+          class="px-1 white--text"
+          min-width="44px"
+          @click="logout"
+        >
+          <v-icon>mdi-logout</v-icon>
+        </v-btn>
+      </div>
+      <v-container fluid class="my-3">
         <v-row>
           <v-col
             v-for="(card, i) in cards"
@@ -35,54 +43,12 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-btn
-        class="red darken-1 white--text fixed-bottom-right px-1"
-        min-width="44px"
-        @click="logout"
-      >
-        <v-icon>mdi-logout</v-icon>
-      </v-btn>
     </v-sheet>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-
-const SAMPLE = [
-  {
-    icon: 'mdi-card-multiple',
-    title: 'Template',
-    path: '/template/main'
-  },
-  {
-    icon: 'mdi-view-grid-plus',
-    title: '시스템 관리',
-    path: '/appmgmt/app/menu1',
-    appName: 'appmgmt'
-  },
-  {
-    icon: 'mdi-format-list-checks',
-    title: 'To Do List',
-    path: '/todolist',
-    appName: 'todolist'
-  },
-  {
-    icon: 'mdi-heart',
-    title: 'Test App',
-    path: '/template2'
-  },
-  {
-    icon: 'mdi-heart',
-    title: 'Test App',
-    path: '/template3'
-  },
-  {
-    icon: 'mdi-heart',
-    title: 'Test App',
-    path: '/template4'
-  }
-]
 
 export default {
   name: 'AppMenuSelect',
@@ -107,4 +73,34 @@ export default {
     this.init()
   }
 }
+
+const SAMPLE = [
+  {
+    icon: 'mdi-card-multiple',
+    title: '템플릿 목록',
+    path: '/template/main'
+  },
+  {
+    icon: 'mdi-view-grid-plus',
+    title: '시스템 관리',
+    path: '/appmgmt/app/menu1',
+    appName: 'appmgmt'
+  },
+  {
+    icon: 'mdi-format-list-checks',
+    title: 'To Do List',
+    path: '/todolist',
+    appName: 'todolist'
+  },
+  {
+    icon: 'mdi-heart',
+    title: 'Test App',
+    path: '/template2'
+  },
+  {
+    icon: 'mdi-heart',
+    title: 'Test App',
+    path: '/template3'
+  }
+]
 </script>

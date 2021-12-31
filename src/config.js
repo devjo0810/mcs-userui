@@ -19,9 +19,14 @@ const HTTP_STATUS = {
   notFound: '404'
 }
 
+const LOC_STRG_KEY = {
+  id: 'mcs-id'
+}
+
 export {
   debug,
   APP,
   API_CONFIG,
-  HTTP_STATUS
+  HTTP_STATUS,
+  LOC_STRG_KEY
 }

@@ -2,10 +2,12 @@
   width: 100%;
   margin-bottom: 20px;
   .grid-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 8px;
     height: 24px;
     .v-icon {
-      font-size: 20px;
+      font-size: 17px;
       margin-right: 4px; 
     }
     span {
@@ -15,9 +17,9 @@
   .grid_button_area {
     @include flex-start;
     margin-top: 8px;
-    background-color: #E1F5FE;
+    background-color: #eef4f8;
     height: 38px;
-    border: 1px solid #B3E5FC;
+    border: 1px solid #E1F5FE;
     padding: 0 10px;
     .v-btn {
       @include list-margin-right(4px);

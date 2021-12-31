@@ -8,6 +8,7 @@
 }
 
 .app-menu-select-view {
+  @include flex-center;
   height: 100%;
   padding: 25px;
   .v-card {
@@ -20,41 +21,4 @@
    }
 }
 
-.sub_container {
-  .search_area {
-    margin-bottom: 20px;
-    border-top: 1px solid #2a2a2a;
-
-    .search_table {
-      width: 100%;
-      background-color: #fff;
-      border: 1px solid #ececec;
-
-      .w5 {
-        min-width: 5%;
-      }
-
-      tr {
-        height: 37px;
-      }
-
-      th {
-        font-size: 12px;
-        background-color: #f8f8f8;
-        text-align: right;
-        padding: 9px;
-        font-weight: 500;
-        border-bottom: 1px solid #ececec;
-        border-left: 1px solid #ececec;
-        border-right: 1px solid #ececec;
-      }
-
-      td {
-        width: 10%;
-        border-bottom: 1px solid #ececec;
-        padding: 0 5px;
-        font-size: 14px;
-      }
-    }
-  }
-}
+.sub_container {}

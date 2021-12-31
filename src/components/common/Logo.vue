@@ -1,5 +1,8 @@
 <template>
-  <div class="main-logo">
+  <div
+    class="main-logo"
+    :class="{ 'flex-column': vertical }"
+  >
     <img :src="logoImg" alt="메인로고">
     <span>{{ title }}</span>
   </div>
@@ -13,6 +16,10 @@ export default {
   name: 'Logo',
   props: {
     alias: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
       type: Boolean,
       default: false
     }

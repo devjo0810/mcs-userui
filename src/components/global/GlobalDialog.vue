@@ -6,13 +6,15 @@
     <v-card
       class="global-dialog rounded-lg elevation-6 white"
     >
-      <v-card-title class="text-h5">{{ title }}</v-card-title>
-      <v-card-text>{{ message }}</v-card-text>
+      <v-card-title>{{ title }}</v-card-title>
+      <v-divider />
+      <v-card-text class="py-5">{{ message }}</v-card-text>
+      <v-divider />
       <v-card-actions>
         <v-spacer></v-spacer>
         <template v-if="type === 'alert'">
           <v-btn
-            class="confirm"
+            class="confirm mcs-primary"
             @click="close(true)"
           >
             확인
@@ -20,13 +22,13 @@
         </template>
         <template v-if="type === 'confirm'">
           <v-btn
-            class="cancel"
+            class="cancel mcs-grey"
             @click="close(false)"
           >
             취소
           </v-btn>
           <v-btn
-            class="confirm"
+            class="confirm mcs-primary"
             @click="close(true)"
           >
             확인

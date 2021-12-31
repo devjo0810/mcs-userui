@@ -17,7 +17,8 @@ export default {
   name: 'SearchComboBox',
   props: {
     value: {
-      type: [String, Array]
+      type: [String, Array],
+      required: false
     },
     items: {
       type: Array,

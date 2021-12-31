@@ -47,21 +47,20 @@
             <v-btn
               class="mcs-grey"
               block
-              @click="test"
             >
               <span>비밀번호 초기화</span>
             </v-btn>
           </v-col>
         </v-row>
       </v-form>
-      <p class="subtitle-2 text-center mt-5 mb-1">version {{ appVersion }}</p>
+      <p class="text-caption text-center font-italic mt-5 mb-1">version {{ appVersion }}</p>
     </div>
   </div>
 </template>
 
 <script>
 import Logo from '@/components/common/Logo.vue'
-import { APP } from '@/config'
+import { APP, LOC_STRG_KEY } from '@/config'
 import { mapActions } from 'vuex'
 
 export default {
@@ -82,6 +81,16 @@ export default {
     ...mapActions({
       loginCheck: 'Login/loginCheck'
     }),
+    init () {
+      this.getLocStrgId()
+    },
+    getLocStrgId () {
+      const locStrgId = localStorage.getItem(LOC_STRG_KEY.id)
+      if (locStrgId) {
+        this.idCheck = true
+        this.form.id = locStrgId
+      }
+    },
     async login () {
       const isValid = this.$refs.form.validate()
       if (!isValid) return
@@ -89,15 +98,17 @@ export default {
       if (!isLogin) {
         this.$dialog.alert('아이디 또는 비밀번호가 일치하지 않습니다.')
       } else {
+        if (this.idCheck) {
+          localStorage.setItem(LOC_STRG_KEY.id, this.form.id)
+        } else {
+          localStorage.removeItem(LOC_STRG_KEY.id)
+        }
         this.$router.push('/menu')
       }
-    },
-    test () {
-      this.$spinner.show()
-      setTimeout(() => {
-        this.$spinner.hide()
-      }, 1000)
     }
+  },
+  mounted () {
+    this.init()
   }
 }
 </script>

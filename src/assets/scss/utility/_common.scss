@@ -40,7 +40,25 @@ table {
   &grey {
     background-color: $grey !important;
   }
+  &text-{
+    &primary {
+      color: $primary !important;
+    }
+    &secondary {
+      color: $secondary !important;
+    }
+    &grey {
+      color: $grey !important;
+    }
+  }
 }
+
+.w5 { min-width: 5%; }
+.w6 { min-width: 6%; }
+.w7 { min-width: 7%; }
+.w8 { min-width: 8%; }
+.w9 { min-width: 9%; }
+.w10 { min-width: 10%; }
 
 .w100p {
   width: 100%;
@@ -74,7 +92,7 @@ table {
 
 .sub-title {
   padding: 0 0 10px 0;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid $border-color;
   font-weight: 400;
   font-size: 18px;
   margin: 10px 0;
@@ -91,5 +109,86 @@ table {
     margin-left: 10px;
     font-size: 24px;
     font-weight: 600;
+  }
+  &.flex-column {
+    flex-direction: column;
+    span {
+      margin-left: 0;
+    }
+  }
+}
+
+/* common area */
+.search_area {
+  margin-bottom: 20px;
+  border-top: 1px solid $border-top-color;
+
+  .search_table {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid $border-color;
+
+    tr {
+      min-height: 37px;
+    }
+
+    th {
+      font-size: 12px;
+      background-color: $cell-header-color;
+      text-align: right;
+      padding: 9px;
+      font-weight: 500;
+      border-bottom: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+    }
+
+    td {
+      border-bottom: 1px solid $border-color;
+      padding: 0 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+.board_area {
+  margin-bottom: 20px;
+  border-top: 1px solid $border-top-color;
+
+  .board_table {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid $border-color;
+
+    tr {
+      min-height: 37px;
+    }
+
+    th {
+      font-size: 12px;
+      background-color: $cell-header-color;
+      text-align: right;
+      padding: 9px;
+      font-weight: 500;
+      border-bottom: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+
+      .require {
+        color: $require-color;
+        &::before {
+          content: '*';
+          display: inline-block;
+          margin-right: 2px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    td {
+      border-bottom: 1px solid $border-color;
+      padding: 0 5px;
+      font-size: 14px;
+    }
   }
 }
